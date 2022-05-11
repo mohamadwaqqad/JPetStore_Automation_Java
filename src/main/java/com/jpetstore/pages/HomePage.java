@@ -1,0 +1,29 @@
+package com.jpetstore.pages;
+
+import java.io.IOException;
+
+import com.jpetstore.base.TestBase;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage extends TestBase {
+
+    public HomePage() throws IOException {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(id = "Main")
+    WebElement mainDiv;
+
+    public String getTitle() {
+        String actualTitle = driver.getTitle();
+        return actualTitle;
+    }
+
+    public boolean mainIsDisplayed() {
+        return mainDiv.isDisplayed();
+    }
+
+}
